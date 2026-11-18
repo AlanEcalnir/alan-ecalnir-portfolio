@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CCSRMS Case Study | Alan Jr. Ecalnir</title>
+<meta name="description" content="Case study of CCSRMS, a room scheduling system for the College of Computer Studies at Gordon College.">
+<link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap"><nav aria-label="Main"><a class="logo" href="index.html">Alan Ecalnir</a>
+<a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="case-study.html" aria-current="page">Case study</a><a href="index.html#contact">Contact</a></nav></div></header>
+<main id="main"><div class="wrap narrow">
+<section style="border:0"><h1>CCSRMS case study</h1>
+<p class="muted">College of Computer Studies Room Management System, built with my team BEB the Builders for CSP312 Software Engineering 1.</p>
+<a class="btn" href="https://ccsrms.vercel.app">Live site</a><a class="btn alt" href="https://github.com/BEB-THE-BUILDERS/CCSRMS">Source code</a></section>
+
+<section><h2>Overview</h2><p>CCSRMS is a real-time room scheduling and availability system for the College of Computer Studies at Gordon College. It is a web app that can also be installed as a PWA on a phone or desktop.</p></section>
+
+<section><h2>The problem</h2><p>Room scheduling in the department was slow and hard to keep correct, especially with many programs sharing only a few assigned rooms. We built CCSRMS to:</p>
+<ul><li>Prevent classroom overlaps and reservation conflicts</li><li>Let administrators and program chairs manage room schedules easily</li><li>Let students check room availability</li><li>Reduce reliance on paper-based and manual scheduling</li><li>Improve efficiency and transparency in room allocation</li></ul></section>
+
+<section><h2>Target users</h2><ul><li><strong>Admin / Department Head:</strong> manages the schedules of all programs and all CCS rooms.</li><li><strong>Program Chairs (BSCS, BSIT, BSEMC-DAT, BSEMC-GD):</strong> manage only their own program's schedules.</li><li><strong>CCS students:</strong> view the schedules of all rooms handled by the department.</li></ul>
+<p>Only rooms assigned to the College of Computer Studies are in the system.</p></section>
+
+<section><h2>Process</h2><p>We worked document first, and each stage produced a document: the Project Charter, the Requirements Engineering Document (functional and non-functional requirements), the Software Design Package, and the Software Test Plan.</p>
+<p>After building, we tested from April 6 to May 8, 2026. We ran 15 test cases and all passed. We found 5 bugs, and all were fixed and retested.</p>
+<p>The stack is a web app with Supabase (Postgres database, Auth, and Realtime) as the backend, deployed on Vercel. Our design documents first planned Firebase, and we switched to Supabase before building. The reasons are in the decisions below.</p></section>
+
+<section><h2>Designs</h2>
+<figure><img src="assets/landing.jpg" alt="CCSRMS landing page with the headline Find and manage a free CCS room in seconds and a sample schedule grid" width="1200" height="540"><figcaption>Landing page, the part I built.</figcaption></figure>
+<figure><img src="assets/login.jpg" alt="Login card with email and password fields and a note about admin access" width="1200" height="540"><figcaption>Login page.</figcaption></figure>
+<figure><img src="assets/room-view.jpg" alt="Department head room view showing a Monday schedule grid by room with color-coded programs" width="1200" height="540"><figcaption>Department head room view, color coded by program.</figcaption></figure>
+<figure><img src="assets/program-view.jpg" alt="BSCS program view listing classes by year and block with professor, day, time, and room" width="1200" height="540"><figcaption>Program view for BSCS.</figcaption></figure>
+<figure><img src="assets/move-schedule.jpg" alt="Move Schedule confirmation dialog comparing the old and new room and time" width="942" height="797"><figcaption>Move Schedule confirmation before a change is saved.</figcaption></figure>
+<figure><img src="assets/menu.jpg" alt="Side menu with dark mode, change password, import from Excel, audit log, and a danger zone" width="301" height="863"><figcaption>Side menu.</figcaption></figure>
+<figure><img src="assets/student-view.jpg" alt="Student view showing all rooms on Wednesday with the student's own program highlighted" width="1200" height="540"><figcaption>Student view, with the student's program highlighted.</figcaption></figure></section>
+
+<section><h2>Final result</h2><p>CCSRMS is deployed and working. It offers:</p>
+<ul><li>Find a free room by day and time range</li><li>Real-time updates for everyone using the system</li><li>Room and program views with color coding per program</li><li>Conflict checks for a section scheduled in two places at once</li><li>Excel import of existing schedules</li><li>Move schedule with a confirmation step</li><li>Audit log of schedule changes</li><li>Printing the weekly schedule of a room</li><li>Role-based access for admins, program chairs, and students</li><li>Installable app with a dark mode</li></ul></section>
+
+<section><h2>Lessons learned</h2>
+<h3>Scheduling by hand is hard</h3><p>Making schedules for even one program takes a lot of time and effort when done manually. With many programs and only specific rooms for the department, it gets harder. There is also much more we can improve with the right resources and tools.</p>
+<h3>Split work by strengths</h3><p>Knowing where each person is good matters. When everyone handles the part they do best, the work gets easier and the burden on teammates is lighter. Our teamwork was good because everyone did their part and helped each other.</p>
+<h3>Working with people in high positions</h3><p>Setting up access roles meant talking with the department head and program chairs. It felt like training for the workplace, like proposing an idea to a superior. They are busy, so I learned to be prepared and not to cram, because rushing can hurt your part of the work.</p></section>
+
+<section><h2>My role and contributions</h2>
+<h3>The team</h3><ul><li><strong>Rylan Bernardino:</strong> team lead, testing and quality lead</li><li><strong>John Melchor Brillante:</strong> implementation lead, design and architecture lead</li><li><strong>Alan Jr. Ecalnir (me):</strong> requirements and documentation lead, with secondary roles in design and architecture and in testing and quality</li></ul>
+<h3>What I personally did</h3><ul><li>Led the requirements and documentation, including the Requirements Engineering Document</li><li>Built the landing page</li><li>Helped decide how the system should look and work</li><li>Helped with design and architecture</li><li>Executed the tests in the test plan</li></ul>
+<h3>Decision: program chairs can only manage their own program</h3><p>If chairs could edit other programs' schedules, a mistake would be easy to make and hard to notice. Restricting access keeps each schedule with the person responsible for it and makes mistakes easier to trace. It works together with the audit log and conflict checks to keep the data trustworthy.</p>
+<h3>Decision: switching from Firebase to Supabase</h3><p>We saw a problem with Firebase coming and switched before it could affect the project.</p>
+<ul><li>Firebase uses usage-based pricing, and a schedule many users keep open in real time can rack up reads and writes. Supabase is free at our scale.</li><li>Room schedules are relational data, and Postgres handles those relationships and conflict checks more naturally than a NoSQL database.</li><li>Supabase includes Auth and Realtime, which covered our login roles and live updates.</li><li>It is beginner friendly, which mattered for a student team under a deadline.</li></ul>
+<p>The result was an affordable system with a clean data structure that was easier for the team to build and maintain.</p></section>
+</div></main>
+<footer><div class="wrap"><a href="index.html">Back to portfolio</a></div></footer>
+</body></html>

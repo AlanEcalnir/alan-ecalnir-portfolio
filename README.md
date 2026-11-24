@@ -16,6 +16,7 @@ index.html        Home page (intro, about and skills, work, contact)
 case-study.html   Featured case study: CCSRMS
 style.css         Shared styles
 main.js           Typing effect and the draggable 3D computer
+nav.js           Mobile menu, scroll effects, and screenshot viewer
 assets/           Photo and CCSRMS screenshots
 ```
 

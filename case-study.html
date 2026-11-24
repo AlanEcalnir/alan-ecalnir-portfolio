@@ -9,16 +9,36 @@
       content="Case study of CCSRMS, a room scheduling system for the College of Computer Studies at Gordon College."
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "light")
+          document.documentElement.dataset.theme = "light";
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header>
       <div class="wrap">
         <nav aria-label="Main">
-          <a class="logo" href="index.html">Alan Ecalnir</a> <a href="index.html#about">About</a
-          ><a href="index.html#work">Work</a
-          ><a href="case-study.html" aria-current="page">Case study</a
-          ><a href="index.html#contact">Contact</a>
+          <a class="logo" href="index.html">Alan Ecalnir</a>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="menu"
+            aria-label="Toggle menu"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+          <ul id="menu" class="menu">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="case-study.html" aria-current="page">Case study</a></li>
+            <li><button class="theme-btn" type="button">☀ Light</button></li>
+          </ul>
         </nav>
       </div>
     </header>
@@ -34,18 +54,37 @@
           ><a class="btn alt" href="https://github.com/BEB-THE-BUILDERS/CCSRMS">Source code</a>
         </section>
 
+        <nav class="toc" aria-label="On this page">
+          <ul class="chips">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#the-problem">The problem</a></li>
+            <li><a href="#target-users">Target users</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#designs">Designs</a></li>
+            <li><a href="#try-it">Try the idea</a></li>
+            <li><a href="#final-result">Final result</a></li>
+            <li><a href="#lessons-learned">Lessons learned</a></li>
+            <li><a href="#my-role-and-contributions">My role and contributions</a></li>
+          </ul>
+        </nav>
         <!-- Overview -->
-        <section>
+        <section id="overview">
           <h2>Overview</h2>
           <p>
             CCSRMS is a real-time room scheduling and availability system for the College of
             Computer Studies at Gordon College. It is a web app that can also be installed as a PWA
             on a phone or desktop.
           </p>
+          <ul class="stats">
+            <li><b>3</b><span>person team</span></li>
+            <li><b>15/15</b><span>test cases passed</span></li>
+            <li><b>5</b><span>bugs found and fixed</span></li>
+            <li><b>4</b><span>programs supported</span></li>
+          </ul>
         </section>
 
         <!-- The problem -->
-        <section>
+        <section id="the-problem">
           <h2>The problem</h2>
           <p>
             Room scheduling in the department was slow and hard to keep correct, especially with
@@ -61,7 +100,7 @@
         </section>
 
         <!-- Target users -->
-        <section>
+        <section id="target-users">
           <h2>Target users</h2>
           <ul>
             <li>
@@ -81,7 +120,7 @@
         </section>
 
         <!-- Process -->
-        <section>
+        <section id="process">
           <h2>Process</h2>
           <p>
             We worked document first, and each stage produced a document: the Project Charter, the
@@ -100,14 +139,14 @@
         </section>
 
         <!-- Designs -->
-        <section>
+        <section id="designs">
           <h2>Designs</h2>
           <figure>
             <img
               src="assets/landing.jpg"
               alt="CCSRMS landing page with the headline Find and manage a free CCS room in seconds and a sample schedule grid"
-              width="1200"
-              height="540"
+              width="1568"
+              height="712"
             />
             <figcaption>Landing page, the part I built.</figcaption>
           </figure>
@@ -115,8 +154,8 @@
             <img
               src="assets/login.jpg"
               alt="Login card with email and password fields and a note about admin access"
-              width="1200"
-              height="540"
+              width="1568"
+              height="701"
             />
             <figcaption>Login page.</figcaption>
           </figure>
@@ -124,8 +163,8 @@
             <img
               src="assets/room-view.jpg"
               alt="Department head room view showing a Monday schedule grid by room with color-coded programs"
-              width="1200"
-              height="540"
+              width="1568"
+              height="716"
             />
             <figcaption>Department head room view, color coded by program.</figcaption>
           </figure>
@@ -133,8 +172,8 @@
             <img
               src="assets/program-view.jpg"
               alt="BSCS program view listing classes by year and block with professor, day, time, and room"
-              width="1200"
-              height="540"
+              width="1568"
+              height="711"
             />
             <figcaption>Program view for BSCS.</figcaption>
           </figure>
@@ -152,7 +191,7 @@
               src="assets/menu.jpg"
               alt="Side menu with dark mode, change password, import from Excel, audit log, and a danger zone"
               width="301"
-              height="863"
+              height="862"
             />
             <figcaption>Side menu.</figcaption>
           </figure>
@@ -160,15 +199,24 @@
             <img
               src="assets/student-view.jpg"
               alt="Student view showing all rooms on Wednesday with the student's own program highlighted"
-              width="1200"
-              height="540"
+              width="1568"
+              height="717"
             />
             <figcaption>Student view, with the student's program highlighted.</figcaption>
           </figure>
         </section>
 
+        <section id="try-it">
+          <h2>Try the idea</h2>
+          <p>
+            A small sample of how CCSRMS shows room availability. Pick a day, click a time to see
+            which rooms are free, or click a slot to flip it between available and scheduled. This
+            is sample data, not real schedules.
+          </p>
+          <div id="demo"></div>
+        </section>
         <!-- Final result -->
-        <section>
+        <section id="final-result">
           <h2>Final result</h2>
           <p>CCSRMS is deployed and working. It offers:</p>
           <ul>
@@ -186,7 +234,7 @@
         </section>
 
         <!-- Lessons learned -->
-        <section>
+        <section id="lessons-learned">
           <h2>Lessons learned</h2>
           <h3>Scheduling by hand is hard</h3>
           <p>
@@ -210,7 +258,7 @@
         </section>
 
         <!-- My role and contributions -->
-        <section>
+        <section id="my-role-and-contributions">
           <h2>My role and contributions</h2>
           <h3>The team</h3>
           <ul>
@@ -270,5 +318,6 @@
     <footer>
       <div class="wrap"><a href="index.html">Back to portfolio</a></div>
     </footer>
+    <script src="nav.js"></script>
   </body>
 </html>

@@ -38,6 +38,7 @@ let rx = -12,
 const clamp = (v) => Math.max(-60, Math.min(60, v));
 const draw = () => (pc.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`);
 st.addEventListener("pointerdown", (e) => {
+  st.classList.add("used");
   drag = true;
   px = e.clientX;
   py = e.clientY;
